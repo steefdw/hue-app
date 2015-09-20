@@ -1,0 +1,19 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep 20 16:20:29 2015
+
+@author: steef
+"""
+
+class Config:
+  
+  def __init__(self):
+    # please fill in the IP of your Hue bridge.
+    # find it at https://www.meethue.com/api/nupnp
+    self.myIp = '192.168.2.x'    				
+    self.root = 'http://'+self.myIp+'/api/'
+    
+    # Please fill in your username. 
+    # See the docs: http://www.developers.meethue.com/documentation/getting-started        
+    self.apiKey = 'never-gonna-give-you-up-never-gonna-let-you-down'     

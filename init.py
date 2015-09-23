@@ -21,15 +21,14 @@ while False:
 #newtime = time.strftime("%Y-%m-%dT%H:%M:%S",time.localtime(current+20))
 newtime = 'PT00:00:05'
 payload = {
-    'on':'false'#,
-    #"sat":255,
-    #"bri":255,
-    #"hue":'0'
+    'on':False,
+    "sat":255,
+    "bri":255,
+    "hue":'0'
 }
 
 print Hue.schedule.add(newtime, payload)
 print Hue.schedule.get()
-
 
 #todo
 ''' 

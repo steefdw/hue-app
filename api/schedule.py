@@ -35,7 +35,7 @@ class Schedule:
         "address":"/api/"+self.request.apiKey+"/lights/"+str(lightId)+"/state",
         "method":"PUT",
         "body": body,
-        "autodelete":permanent
+        #"autodelete":permanent
       },
       "localtime":time
     }

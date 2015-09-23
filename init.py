@@ -10,11 +10,11 @@ from api.base import Init
 import time
 
 Hue = Init(True)
-Hue.getLights()
+print Hue.lights.getLights()
 
-while True:
-    r = Hue.toggle()
-    #r = Hue.wobble()
+while False:
+    r = Hue.lights.toggle()
+    #r = Hue.lights.wobble()
     time.sleep(0.8)
 
 #current = time.time()
@@ -27,8 +27,8 @@ payload = {
     #"hue":'0'
 }
 
-print Hue.schedule(newtime, payload)
-print newtime
+print Hue.schedule.add(newtime, payload)
+print Hue.schedule.get()
 
 
 #todo

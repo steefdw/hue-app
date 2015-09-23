@@ -7,12 +7,18 @@ Created on Sat Sep 19 15:20:46 2015
 """
 
 import random
+from request import Request
 
 class Lights:
 
+  def __init__(self):
+    self.lights = []
+    self.states = {}
+    self.request = Request(True)
+    
   def getLights(self):
-    content = self.get('lights')        
-
+    content = self.request.get('lights')        
+    
     for (k, v) in content.items():
       v['id'] = int(k)            
       self.lights.append(v)
@@ -31,7 +37,7 @@ class Lights:
       else:
         payload = {'on': newState}
             
-      r = self.put(action, payload)
+      r = self.request.put(action, payload)
             
       self.states[lightId] = newState
             
@@ -50,7 +56,7 @@ class Lights:
       else:
         payload = {'on':True,"sat":255, "bri":10,"hue":color}
             
-      r = self.put(action, payload)
+      r = self.request.put(action, payload)
             
       self.states[lightId] = newState
             
@@ -65,6 +71,6 @@ class Lights:
       else:
         payload = {"effect":"none"}
             
-      r = self.put(action, payload)
+      r = self.request.put(action, payload)
             
     return r

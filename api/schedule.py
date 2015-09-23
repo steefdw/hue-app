@@ -6,19 +6,31 @@ Created on Sat Sep 19 15:20:46 2015
 @author: steef
 """
 
-class Schedule:
+from request import Request
 
- def schedule(self, time, body):       
+class Schedule:
+  def __init__(self):
+    self.request = Request(True)
+
+  def add(self, time, body):       
     action = 'schedules'
     payload = {
       "name":"test",
       "description":"test",
       "command":{
-        "address":"/api/"+self.apiKey+"/lights/1/state",
+        "address":"/api/"+self.request.apiKey+"/lights/1/state",
         "method":"PUT",
         "body": body
       },
       "localtime":time
     }
         
-    return self.post(action, payload)
+    return self.request.post(action, payload)
+    
+  def get(self, scheduleId = False):
+    action = 'schedules'
+    
+    if(scheduleId != False):
+      action = 'schedules/'+scheduleId
+          
+    return self.request.get(action)

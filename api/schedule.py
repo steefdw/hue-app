@@ -6,26 +6,18 @@ Created on Sat Sep 19 15:20:46 2015
 @author: steef
 """
 
-from request import Request
-
 class Schedule:
-  def __init__(self):
-    self.request = Request(True)
-
-  def add(self, time, body):       
+  def __init__(self, Lights, Request):
+    self.lights  = Lights
+    self.request = Request
+    self.responses = []      
+    
+  def add(self, time, body, permanent = False):       
     action = 'schedules'
-    payload = {
-      "name":"test",
-      "description":"test",
-      "command":{
-        "address":"/api/"+self.request.apiKey+"/lights/1/state",
-        "method":"PUT",
-        "body": body
-      },
-      "localtime":time
-    }
-        
-    return self.request.post(action, payload)
+    for light in self.lights.lights:    
+      payload = self.statePayload(light['id'], time, body, permanent)
+      self.responses.append(self.request.post(action, payload))
+    return self.responses
     
   def get(self, scheduleId = False):
     action = 'schedules'
@@ -34,3 +26,16 @@ class Schedule:
       action = 'schedules/'+scheduleId
           
     return self.request.get(action)
+    
+  def statePayload(self, lightId, time, body, permanent):
+    return {
+      #"name":"test",
+      #"description":"test",
+      "command":{
+        "address":"/api/"+self.request.apiKey+"/lights/"+str(lightId)+"/state",
+        "method":"PUT",
+        "body": body,
+        "autodelete":permanent
+      },
+      "localtime":time
+    }

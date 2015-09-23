@@ -8,10 +8,12 @@ Created on Sat Sep 19 15:20:46 2015
 
 from api.lights import Lights
 from api.schedule import Schedule
+from api.request import Request
 
 class Init():
 
   def __init__(self, debug = False):
-    self.lights = Lights()
-    self.schedule = Schedule()       
+    self.request = Request(debug)
+    self.lights = Lights(self.request)
+    self.schedule = Schedule(self.lights, self.request)    
     self.debug = debug

@@ -27,7 +27,7 @@ class Request():
       response = json.loads(r.text)
       if(self.debug):
         print json.dumps(response, sort_keys=False, indent=2, separators=(',', ': '))
-        return response
+      return response
     except:
       return r.text
             

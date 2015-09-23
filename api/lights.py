@@ -7,14 +7,13 @@ Created on Sat Sep 19 15:20:46 2015
 """
 
 import random
-from request import Request
 
 class Lights:
 
-  def __init__(self):
+  def __init__(self, Request):
     self.lights = []
     self.states = {}
-    self.request = Request(True)
+    self.request = Request
     
   def getLights(self):
     content = self.request.get('lights')        

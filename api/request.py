@@ -11,6 +11,8 @@ import json
 
 from config import Config
 
+# should be renamed to Bridge or something that is making clear that
+# this is doing the communication with the Hue bridge
 class Request():
 
   def __init__(self, debug = False):

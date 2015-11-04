@@ -73,3 +73,33 @@ class Lights:
       r = self.request.put(action, payload)
             
     return r
+
+  def toggleAlert(self, on = True, color = 65535):
+    for lightId, state in self.states.items():
+      action = 'lights/'+str(lightId)+'/state'
+
+      if(on == True):
+        payload = {
+          'on':True,
+          "sat":255, 
+          "bri":255,
+          "alert":"lselect",
+          "hue": color
+        }
+      else:
+        payload = {"alert":"none"}
+            
+      r = self.request.put(action, payload)
+            
+    return r
+    
+  def off(self):            
+    for lightId, state in self.states.items():
+        action = 'lights/'+str(lightId)+'/state'        
+        payload = {'on': False}
+            
+        r = self.request.put(action, payload)
+          
+        self.states[lightId] = False
+            
+    return r

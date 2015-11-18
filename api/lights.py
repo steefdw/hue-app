@@ -23,7 +23,7 @@ class Lights:
       self.lights.append(v)
       self.states[v['id']] = v['state']['on']
             
-  def toggle(self, color = False):
+  def toggle(self, color = False, brightness = 254):
     if(color == False):
       color = random.randint(0,65535);
             
@@ -32,7 +32,13 @@ class Lights:
       action = 'lights/'+str(lightId)+'/state'            
             
       if(newState == True):
-        payload = {'on':True,"sat":255, "bri":255,"hue":color}
+        payload = {
+          'on':True,
+          "sat":254,
+          "bri":brightness,
+          "hue":color,
+          #'transitiontime':50
+        }
       else:
         payload = {'on': newState}
             
@@ -42,7 +48,7 @@ class Lights:
             
     return r
 
-  def wobble(self, color = False):
+  def wobble(self, color = False, brightness = 254):
     if(color == False):
       color = random.randint(0,65535);
             
@@ -51,9 +57,9 @@ class Lights:
       action = 'lights/'+str(lightId)+'/state'            
             
       if(newState == True):
-        payload = {'on':True,"sat":255, "bri":255,"hue":color}
+        payload = {'on':True,"sat":254, "bri":brightness,"hue":color}
       else:
-        payload = {'on':True,"sat":255, "bri":10,"hue":color}
+        payload = {'on':True,"sat":254, "bri":10,"hue":color}
             
       r = self.request.put(action, payload)
             
@@ -61,12 +67,12 @@ class Lights:
             
     return r
         
-  def toggleColorloop(self, on = True):
+  def toggleColorloop(self, on = True, brightness = 254):
     for lightId, state in self.states.items():
       action = 'lights/'+str(lightId)+'/state'
 
       if(on == True):
-        payload = {'on':True,"sat":255, "bri":255,"effect":"colorloop"}
+        payload = {'on':True,"sat":254, "bri":brightness,"effect":"colorloop"}
       else:
         payload = {"effect":"none"}
             
@@ -80,9 +86,8 @@ class Lights:
 
       if(on == True):
         payload = {
-          'on':True,
-          "sat":255, 
-          "bri":255,
+          'on':True,          
+          "sat":254, # note: setting brightness doesn' t do anything 
           "alert":"lselect",
           "hue": color
         }

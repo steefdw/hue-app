@@ -24,7 +24,7 @@ while True:
 newtime = 'PT00:00:05'
 payload = {
     'on':False,
-    'sat':255,
+    'sat':254,
     'bri':1,
     'hue':12345
 }

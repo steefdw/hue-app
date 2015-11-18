@@ -17,3 +17,17 @@ class Init():
     self.lights = Lights(self.request)
     self.schedule = Schedule(self.lights, self.request)    
     self.debug = debug
+    
+  def color(self, color):
+    if(color == 'red'):
+      return 0
+    if(color == 'yellow'):
+      return 12750
+    if(color == 'green'):
+      return 25500
+    if(color == 'blue'):
+      return 46920
+    if(color == 'purple'):
+      return 56100
+    
+    return 65280      

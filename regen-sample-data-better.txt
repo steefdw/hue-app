@@ -1,0 +1,52 @@
+101|22:40
+096|22:45
+102|22:50
+101|22:55
+098|23:00
+101|23:05
+093|23:10
+073|23:15
+077|23:20
+070|23:25
+079|23:30
+087|23:35
+087|23:40
+091|23:45
+101|23:50
+105|23:55
+121|00:00
+112|00:05
+115|00:10
+110|00:15
+108|00:20
+100|00:25
+093|00:30
+075|00:35
+000|00:40
+
+
+22:48     lichte motregen    mm/uur: 0.392
+22:50     motregen           mm/uur: 0.604
+22:55     lichte motregen    mm/uur: 0.562
+23:00     lichte motregen    mm/uur: 0.453
+23:05     lichte motregen    mm/uur: 0.562
+23:10     lichte motregen    mm/uur: 0.316
+23:15     droog              mm/uur: 0.075
+23:20     droog              mm/uur: 0.1
+23:25     droog              mm/uur: 0.06
+23:30     droog              mm/uur: 0.115
+23:35     lichte motregen    mm/uur: 0.205
+23:40     lichte motregen    mm/uur: 0.205
+23:45     lichte motregen    mm/uur: 0.274
+23:50     lichte motregen    mm/uur: 0.562
+23:55     motregen           mm/uur: 0.75
+00:00     regen              mm/uur: 2.371
+00:05     lichte regen       mm/uur: 1.241
+00:10     regen              mm/uur: 1.54
+00:15     lichte regen       mm/uur: 1.075
+00:20     lichte regen       mm/uur: 0.931
+00:25     lichte motregen    mm/uur: 0.523
+00:30     lichte motregen    mm/uur: 0.316
+00:35     droog              mm/uur: 0.087
+00:40     droog              mm/uur: 0
+
